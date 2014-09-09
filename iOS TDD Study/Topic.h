@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class Question;
+
 @interface Topic : NSObject
 
-@property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, strong, readonly) NSString *tag;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *tag;
+@property (nonatomic, strong) NSArray *questions;
 
 - (instancetype)initWithName:(NSString *)name tag:(NSString *)tag;
+- (NSArray *)recentQuestions;
+- (void)addQuestion:(Question *)question;
 
 @end
