@@ -10,11 +10,13 @@
 
 @implementation Topic
 
-- (instancetype)initWithName:(NSString *)name
+- (instancetype)initWithName:(NSString *)name tag:(NSString *)tag
 {
     self = [super init];
+    
     if (self) {
-        self.name = [name copy];
+        _name = [name copy];
+        _tag = [tag copy];
     }
     
     return self;

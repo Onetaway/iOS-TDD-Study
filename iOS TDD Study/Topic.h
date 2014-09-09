@@ -10,8 +10,9 @@
 
 @interface Topic : NSObject
 
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, strong, readonly) NSString *tag;
 
-- (instancetype)initWithName:(NSString *)name;
+- (instancetype)initWithName:(NSString *)name tag:(NSString *)tag;
 
 @end

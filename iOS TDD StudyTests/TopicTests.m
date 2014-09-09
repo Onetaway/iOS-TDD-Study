@@ -12,7 +12,7 @@
 
 @interface TopicTests : XCTestCase
 
-
+@property (nonatomic, strong) Topic *topic;
 
 @end
 
@@ -20,11 +20,13 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    _topic = [[Topic alloc] initWithName:@"iPhone" tag:@"iphone"];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    _topic = nil;
+    
     [super tearDown];
 }
 
@@ -41,13 +43,19 @@
 }
 
 - (void)testTopicExist {
-    Topic *newTopic = [[Topic alloc] init];
-    XCTAssert(newTopic, @"Should be able to create a new topic");
+    XCTAssertNotNil(_topic, @"Should be able to create a new topic instance");
 }
 
 - (void)testThatTopicCanBeNamed {
-    Topic *nameTopic = [[Topic alloc] initWithName:@"iPhone"];
-    XCTAssertEqualObjects(nameTopic.name, @"iPhone", @"topic's name should have the name iPhone");
+    XCTAssertEqualObjects(_topic.name, @"iPhone", @"The Topic instance should have the name I gave it");
+}
+
+- (void)testThatTopicHasTag {
+    XCTAssertEqualObjects(_topic.name, @"iPhone", @"The Topic instance should have a tag.");
+}
+
+- (void)testForAListOfQuestions {
+    
 }
 
 @end
